@@ -50,6 +50,25 @@ print ("Percentage of price_columns with null values: " + str(perc_col_nulls*100
 print("List of all price_columns in dataset: " + str(allpriceColumns))
 print ("List of all price_columns with nulls: " + str(nullpriceColumns))
 
+#Review Data Checks - how much data is available and what's missing
+reviewRows = review.shape[0]
+reviewColumns = review.shape[1]
+nullreviewColumns=review.columns[review.isna().any()==True]
+allreviewColumns = review.columns
+
+
+#Rows and Columns
+print("review_rows: " + str(reviewRows)) #How many review_rows
+print("review_columns: " + str(reviewColumns)) #How many review_columns
+
+#How many review_columns have missing values
+no_nulls = review.isna().any().sum() #How many review_columns with missing values?
+perc_col_nulls = review.isna().any().sum()/review.shape[1] #What % of the review_columns have missing data?
+print ("review_columns with missing data:" + str(no_nulls))
+print ("Percentage of review_columns with null values: " + str(perc_col_nulls*100))
+print("List of all review_columns in dataset: " + str(allreviewColumns))
+print ("List of all review_columns with nulls: " + str(nullreviewColumns))
+
 
 
 ''' Questions:
