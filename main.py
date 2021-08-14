@@ -2,27 +2,55 @@ import numpy as np
 import pandas as pd
 import matplotlib as mb
 
-df = pd.read_csv('SeattleListings.csv')
-print(df.head())
+#Import Seattle AirBnB Data
+survey = pd.read_csv('SeattleListings.csv')
+price = pd.read_csv('SeattleCalendar.csv')
+review = pd.read_csv('SeattleReviews.csv')
+
+print (survey.head())
+print (price.head())
+print (review.head())
+
+#Survey Data Checks - how much data is available and what's missing
+surveyRows = survey.shape[0]
+surveyColumns = survey.shape[1]
+nullSurveyColumns=survey.columns[survey.isna().any()==True]
+allSurveyColumns = survey.columns
 
 
-rows = df.shape[0]
-columns = df.shape[1]
-nullColumns=df.columns[df.isna().any()==True]
-allColumns = df.columns
+#Rows and Columns
+print("survey_rows: " + str(surveyRows)) #How many survey_rows
+print("survey_columns: " + str(surveyColumns)) #How many survey_columns
 
-#What's the shape of the data
-print("rows: " + str(rows)) #How many rows
-print("columns: " + str(columns)) #How many columns
+#How many survey_columns have missing values
+no_nulls = survey.isna().any().sum() #How many survey_columns with missing values?
+perc_col_nulls = survey.isna().any().sum()/survey.shape[1] #What % of the survey_columns have missing data?
+print ("survey_columns with missing data:" + str(no_nulls))
+print ("Percentage of survey_columns with null values: " + str(perc_col_nulls*100))
+print("List of all survey_columns in dataset: " + str(allSurveyColumns))
+print ("List of all survey_columns with nulls: " + str(nullSurveyColumns))
 
 
-#How many columns have missing values
-no_nulls = df.isna().any().sum() #How many columns with missing values?
-perc_col_nulls = df.isna().any().sum()/df.shape[1] #What % of the columns have missing data?
-print ("Columns with missing data:" + str(no_nulls))
-print ("Percentage of columns with null values: " + str(perc_col_nulls*100))
-print("List of all columns in dataset: " + str(allColumns))
-print ("List of all columns with nulls: " + str(nullColumns))
+#price Data Checks - how much data is available and what's missing
+priceRows = price.shape[0]
+priceColumns = price.shape[1]
+nullpriceColumns=price.columns[price.isna().any()==True]
+allpriceColumns = price.columns
+
+
+#Rows and Columns
+print("price_rows: " + str(priceRows)) #How many price_rows
+print("price_columns: " + str(priceColumns)) #How many price_columns
+
+#How many price_columns have missing values
+no_nulls = price.isna().any().sum() #How many price_columns with missing values?
+perc_col_nulls = price.isna().any().sum()/price.shape[1] #What % of the price_columns have missing data?
+print ("price_columns with missing data:" + str(no_nulls))
+print ("Percentage of price_columns with null values: " + str(perc_col_nulls*100))
+print("List of all price_columns in dataset: " + str(allpriceColumns))
+print ("List of all price_columns with nulls: " + str(nullpriceColumns))
+
+
 
 ''' Questions:
 
