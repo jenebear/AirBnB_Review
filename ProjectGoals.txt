@@ -1,7 +1,7 @@
 Key Steps for Project
 Feel free to be creative with your solutions, but do follow the CRISP-DM process in finding your solutions.
 
-1) Pick a dataset.
+1) Pick a dataset. - Seattle Data
 
 2) Pose at least three questions related to business or real-world applications of how the data could be used.
 
